@@ -12,10 +12,10 @@ jobs:
           node-version: 18
       - name: Install dependencies
         run: npm ci
-  testing:
-    needs: setupEnvironement
-    runs-on: ubuntu-latest
-    steps:
+  # testing:
+  #   needs: setupEnvironement
+  #   runs-on: ubuntu-latest
+  #   steps:
       - name: Run lint
         run: npm run lint
       - name: Run test
