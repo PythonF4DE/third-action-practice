@@ -1,7 +1,7 @@
 name: Practice project action
 on: push
 jobs:
-  setupEnvironement:
+  testing:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -12,10 +12,6 @@ jobs:
           node-version: 18
       - name: Install dependencies
         run: npm ci
-  # testing:
-  #   needs: setupEnvironement
-  #   runs-on: ubuntu-latest
-  #   steps:
       - name: Run lint
         run: npm run lint
       - name: Run test
@@ -23,8 +19,8 @@ jobs:
       - name: Build app
         run: npm run build
   deploy:
-    needs: setupEnvironement
+    needs: testing
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to cloud
-        run: echo "Deploying""
+        run: echo "Deploying"
