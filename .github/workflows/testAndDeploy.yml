@@ -23,7 +23,7 @@ jobs:
       - name: Build app
         run: npm run build
   deploy:
-    needs: testing
+    needs: setupEnvironement
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to cloud
