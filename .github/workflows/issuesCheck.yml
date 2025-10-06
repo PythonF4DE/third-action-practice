@@ -1,0 +1,20 @@
+name: Practice project action
+on:
+  issues:
+    type: [opened, edited, milestoned]
+
+jobs:
+  show-context:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show basic GitHub context info
+        run: |
+          echo "Event name: ${{ github.event_name }}"
+          echo "Actor: ${{ github.actor }}"
+          echo "Repository: ${{ github.repository }}"
+          echo "Event action: ${{ github.event.action }}"
+          echo "Issue title: ${{ github.event.issue.title }}"
+          echo "Issue number: ${{ github.event.issue.number }}"
+      - name: Dump full event JSON (for debugging)
+        run: |
+          echo '${{ toJSON(github.event) }}'
